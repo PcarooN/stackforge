@@ -1,0 +1,98 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+@import "shadcn/tailwind.css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: 'Urbanist', sans-serif; /* Senin sunumda ve tasarımda sevdiğin o premium font */
+  --font-mono: 'JetBrains Mono', monospace;
+  
+  --color-ring: var(--ring);
+  --color-input: var(--input);
+  --color-border: var(--border);
+  
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  
+  --radius-sm: calc(var(--radius) * 0.6);
+  --radius-md: calc(var(--radius) * 0.8);
+  --radius-lg: var(--radius);
+}
+
+/* KÖK DEĞİŞKENLER: Doğrudan Koyu Temayı Varsayılan Yapıyoruz! */
+:root {
+  /* Senin sevdiğin o meşhur derin lacivert/siyah dashboard rengi */
+  --background: oklch(0.12 0.02 245); 
+  --foreground: oklch(0.95 0.01 240);
+  
+  --card: oklch(0.14 0.02 245);
+  --card-foreground: oklch(0.95 0.01 240);
+  
+  --popover: oklch(0.14 0.02 245);
+  --popover-foreground: oklch(0.95 0.01 240);
+  
+  /* Neon Yeşili Dokunuşlar (Sunumdaki @deff9a rengi gibi) */
+  --primary: oklch(0.88 0.15 115); 
+  --primary-foreground: oklch(0.12 0.02 245);
+  
+  --muted: oklch(0.25 0.02 245);
+  --muted-foreground: oklch(0.70 0.01 240);
+  
+  --accent: oklch(0.20 0.02 245);
+  --accent-foreground: oklch(0.95 0.01 240);
+  
+  --destructive: oklch(0.60 0.18 25);
+  --border: oklch(0.20 0.02 245);
+  --input: oklch(0.20 0.02 245);
+  --ring: oklch(0.88 0.15 115 / 30%);
+  --radius: 0.75rem;
+}
+
+::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+
+  /* Kaydırma çubuğunun arkasındaki boş yol (Track) */
+  ::-webkit-scrollbar-track {
+    background: #0a0a0a; /* neutral-950 */
+  }
+
+  /* Kullanıcının tutup kaydırdığı hareketli çubuk (Thumb) */
+  ::-webkit-scrollbar-thumb {
+    background: #262626; /* neutral-800 */
+    border-radius: 100px;
+    border: 1px solid #0a0a0a; /* Boşluk hissi için track rengiyle border */
+    transition: background 0.2s ease;
+  }
+
+  /* Kullanıcı çubuğun üzerine geldiğinde (Hover) */
+  ::-webkit-scrollbar-thumb:hover {
+    background: #4f46e5; /* indigo-600 - StackForge ana rengi */
+  }
+
+  /* Firefox için modern çözüm */
+  * {
+    scrollbar-width: thin;
+    scrollbar-color: #262626 #0a0a0a;
+  }
+
+@layer base {
+  * {
+    @apply border-border/40 outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground antialiased font-sans;
+    background-color: #060913;
+  }
+
+  .dashboard-shell {
+    color-scheme: light;
+    font-family: var(--font-sans), system-ui, sans-serif;
+  }
+}
